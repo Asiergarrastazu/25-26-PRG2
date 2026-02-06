@@ -4,13 +4,13 @@ public class MiniEdlin {
 
     public static void main(String[] args) {
 
-        Scanner s = new Scanner(System.in);
+        Scanner teclado = new Scanner(System.in);
 
-        String[] a = new String[10];
-        int x = 0;
-        int o = 0;
+        String[] texto = new String[10];
+        int lineaActiva = 0;
+        int opcion = 0;
 
-        for (int i = 0; i < 10; i++) a[i] = "";
+        for (int i = 0; i < 10; i++) texto[i] = "";
 
         do {
 
@@ -20,42 +20,42 @@ public class MiniEdlin {
             System.out.println("4 borrar");
             System.out.println("5 salir");
 
-            o = s.nextInt();
-            s.nextLine();
+            opcion = teclado.nextInt();
+            teclado.nextLine();
 
-            if (o == 1) {
+            if (opcion == 1) {
 
                 for (int i = 0; i < 10; i++) {
-                    if (i == x)
-                        System.out.println(">" + (i + 1) + ":" + a[i]);
+                    if (i == lineaActiva)
+                        System.out.println(">" + (i + 1) + ":" + texto[i]);
                     else
-                        System.out.println(" " + (i + 1) + ":" + a[i]);
+                        System.out.println(" " + (i + 1) + ":" + texto[i]);
                 }
             }
 
-            else if (o == 2) {
+            else if (opcion == 2) {
 
-                int n = s.nextInt();
-                s.nextLine();
+                int nueva = teclado.nextInt();
+                teclado.nextLine();
 
-                if (n > 0 && n <= 10)
-                    x = n - 1;
+                if (nueva > 0 && nueva <= 10)
+                    lineaActiva = nueva - 1;
             }
 
-            else if (o == 3) {
+            else if (opcion == 3) {
 
-                a[x] = s.nextLine();
+                texto[lineaActiva] = teclado.nextLine();
             }
 
-            else if (o == 4) {
+            else if (opcion == 4) {
 
-                int b = s.nextInt();
-                s.nextLine();
+                int borrar = teclado.nextInt();
+                teclado.nextLine();
 
-                if (b > 0 && b <= 10)
-                    a[b - 1] = "";
+                if (borrar > 0 && borrar <= 10)
+                    texto[borrar - 1] = "";
             }
 
-        } while (o != 5);
+        } while (opcion != 5);
     }
 }
