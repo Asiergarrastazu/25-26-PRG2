@@ -67,6 +67,12 @@ public class Buscaminas{
 				}
 			}
 
+			
+			if(!mapaMinasMostrar[posX][posY].equals("-")){
+				System.out.println("Esa posición ya fue jugada.");
+				continue;
+			}
+
 			if(mapaMinasActivas[posX][posY].equals("1")){
 				mapaMinasMostrar[posX][posY]="x";
 				contadorMinas++;
