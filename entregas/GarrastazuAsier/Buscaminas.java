@@ -26,53 +26,52 @@ public class Buscaminas{
 		Scanner scan = new Scanner(System.in);
 
 		int i=0;	
-		while ( i < 5){
-			int PosYMina = (int)(Math.random()*2+1);
-			int PosXMina = (int)(Math.random()*4+1);
-			if (mapaMinasActivas[PosXMina][PosYMina]=="1"){
-				i=i-1;
+		while (i < 5){
+			int PosXMina = (int)(Math.random()*5 + 1);
+			int PosYMina = (int)(Math.random()*7 + 1);
+
+			if (mapaMinasActivas[PosXMina][PosYMina].equals("1")){
+				continue;
 			}
 			else {
-				mapaMinasActivas[PosXMina+1][PosYMina+1]="1";
+				mapaMinasActivas[PosXMina][PosYMina] = "1";
+				i++;
 			}
-			i++;
 		}
 
 		int posX=0, posY=0, juegoEncendido=1, valoresCorrectos, contadorMapa=0, contadorMinas=0;
 
 		while(juegoEncendido==1){
-			for( i = 0; i<mapaMinasMostrar.length; i++){            
-				for (int j = 0; j<=mapaMinasMostrar.length+1; j++) {                                     
-					System.out.print(mapaMinasMostrar[i][j]);
+
+			for(i = 0; i < mapaMinasMostrar.length; i++){            
+				for (int j = 0; j < mapaMinasMostrar[i].length; j++) {                                     
+					System.out.print(mapaMinasMostrar[i][j] + " ");
 				}
-				System.out.println(" ");
+				System.out.println();
 			}
 
 			valoresCorrectos=0;
 
 			while(valoresCorrectos==0){
-				System.out.println(" ");
-				System.out.println("Ingrese X");
+				System.out.println("\nIngrese X");
 				posY = scan.nextInt();
+
 				System.out.println("Ingrese Y");
 				posX = scan.nextInt();
 
-				if(posX>5){
-					valoresCorrectos=0;
-				}
-				else if(posY>7){
-					valoresCorrectos=0;
+				if(posX < 1 || posX > 5 || posY < 1 || posY > 7){
+					System.out.println("Coordenadas inválidas.");
 				}
 				else{
 					valoresCorrectos=1;
 				}
 			}
 
-			if(mapaMinasActivas[posX][posY]=="1"){
+			if(mapaMinasActivas[posX][posY].equals("1")){
 				mapaMinasMostrar[posX][posY]="x";
 				contadorMinas++;
 			}
-			else if(mapaMinasActivas[posX][posY]=="0"){
+			else if(mapaMinasActivas[posX][posY].equals("0")){
 				mapaMinasMostrar[posX][posY]=".";
 			}
 			else{
