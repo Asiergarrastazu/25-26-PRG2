@@ -19,7 +19,7 @@ class Intervalo {
     }
     
     public Intervalo (Intervalo intervalo) {
-        this(intervalo.inferior, intervalo.superior)
+        this(intervalo.inferior, intervalo.superior);
     }
 
     public Intervalo clone() {
@@ -59,8 +59,9 @@ class Intervalo {
                 superior == intervalo.superior;
     }
 
+    public Intervalo interseccion(Intervalo intervalo) {
 
-    public Intervalo interseccion(Intervalo intervalo)
+    }
     
     public boolean intersecta(Intervalo intervalo) {
 
@@ -84,12 +85,24 @@ class Intervalo {
     }
 
 
+    public void mostrar() {
 
-    public void mostrar()
-    public void recoger()
+    }
 
-    public Intervalo[] trocear(int numeroTrozos)
-    public Intervalo union(Intervalo intervalo)
-    public double puntoMedio();
+    public void recoger() {
+
+    }
+
+    public Intervalo[] trocear(int numeroTrozos) {
+
+    }
+    
+    public Intervalo union(Intervalo intervalo) {
+
+    }
+    
+    public double puntoMedio() {
+
+    };
 
 }
